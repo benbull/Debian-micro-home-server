@@ -30,16 +30,6 @@ EOF
 
 echo "$HOSTNAMESHORT" > /etc/hostname
 /etc/init.d/hostname.sh start >/dev/null 2>&1
-
-# add tvheadend repo and key
-if !(grep -qs tvheadend "/etc/apt/sources.list");then
-cat >> /etc/apt/sources.list <<EOF
-# TV headend
-deb http://apt.tvheadend.org/stable wheezy main
-EOF
-wget -qO - http://apt.tvheadend.org/stable/repo.gpg.key | apt-key add -
-apt-get update
-fi
 }
 #############################################################################
 
@@ -540,21 +530,21 @@ exitstatus=$?; if [ $exitstatus = 1 ]; then exit 1; fi
 
 install_basic
 install_DashNTP
-install_MySQLDovecot
+# install_MySQLDovecot
 install_Virus
 #install_Apache
 install_NginX
 install_PureFTPD
-install_Fail2BanDovecot
-install_Fail2BanRulesDovecot
+# install_Fail2BanDovecot
+# install_Fail2BanRulesDovecot
 install_samba
-install_scaner_and_scanbuttons
-install_ocr
+# install_scaner_and_scanbuttons
+# install_ocr
 install_cups
 install_btsync
 install_temper
 install_vpn_server
-apt-get -y install tvheadend
+# apt-get -y install tvheadend
 apt-get -y install transmission-cli transmission-common transmission-daemon
 install_ISPConfig
                
