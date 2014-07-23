@@ -540,7 +540,7 @@ install_PureFTPD
 install_samba
 # install_scaner_and_scanbuttons
 # install_ocr
-install_cups
+# install_cups
 install_btsync
 install_temper
 install_vpn_server
